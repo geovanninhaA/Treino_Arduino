@@ -1,12 +1,18 @@
 # Treino_Arduino
-// ACENDER GRADATIVAMENTE
-int led=11;
+#include<Servo.h>
+Servo Motorzinho;
+int led=13;
 void setup() {
-  pinMode(led,OUTPUT);
+ Motorzinho.attach(9);
+ pinMode(led,OUTPUT);
 
 }
 
 void loop() {
+  Motorzinho.write(0);
+  delay(500);
+  Motorzinho.write(360);
+  delay(500);
   //Acender led gradativamente
   for(int contador=0; contador<=255; contador++){
     analogWrite(led,contador);
@@ -19,4 +25,3 @@ void loop() {
   }
   delay(1000);
 }
-
